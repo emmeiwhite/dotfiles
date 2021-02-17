@@ -3,13 +3,14 @@ export EDITOR="nvim"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # bat
-export BAT_THEME=OneHalfLight
+export BAT_THEME=gruvbox
 
 # composer
 export PATH=$PATH:$HOME/.composer/vendor/bin
@@ -20,8 +21,12 @@ export PATH=$PATH:$HOME/Library/Python/3.8/bin
 # nvim
 export PATH=$PATH:/usr/local/nvim/bin
 
+# go
+export PATH=$PATH:/usr/local/go/bin
 
 # BEGIN SNIPPET: Platform.sh CLI configuration
 HOME=${HOME:-'/Users/skippednote'}
 export PATH="$HOME/"'.platformsh/bin':"$PATH"
 if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi # END SNIPPET
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
